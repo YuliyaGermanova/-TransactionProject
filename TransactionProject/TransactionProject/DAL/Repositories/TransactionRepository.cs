@@ -20,8 +20,7 @@ namespace TransactionProject.DAL.Repositories
         {
             using (var db = new TransactionContext())
             {
-                var transaction = db.Transactions.FirstOrDefault(x => x.Id == id);
-                return transaction;
+                return db.Transactions.FirstOrDefault(x => x.Id == id);
             }
         }
     }

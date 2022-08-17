@@ -35,13 +35,31 @@ while (command != "exit")
 void Add()
 {
     Console.WriteLine("Введите Id:");
-    var id = Convert.ToInt32(Console.ReadLine());
+
+    var isIdValid = int.TryParse(Console.ReadLine(), out var id);
+    if (!isIdValid)
+    {
+        Console.WriteLine("Данные введены некорректно");
+        return;
+    }
 
     Console.WriteLine("Введите дату:");
-    var transactionDate = Convert.ToDateTime(Console.ReadLine());
+
+    var isDateValid = DateTime.TryParse(Console.ReadLine(), out var transactionDate);
+    if (!isDateValid)
+    {
+        Console.WriteLine("Данные введены некорректно");
+        return;
+    }
 
     Console.WriteLine("Введите сумму:");
-    var amount = Convert.ToDecimal(Console.ReadLine());
+
+    var isAmountValid = decimal.TryParse(Console.ReadLine(), out var amount);
+    if (!isAmountValid)
+    {
+        Console.WriteLine("Данные введены некорректно");
+        return;
+    }
 
     var result = _transactionService.Add(id, transactionDate, amount);
 
@@ -51,7 +69,13 @@ void Add()
 void Get()
 {
     Console.WriteLine("Введите Id:");
-    var id = Convert.ToInt32(Console.ReadLine());
+
+    var isIdValid = int.TryParse(Console.ReadLine(), out var id);
+    if (!isIdValid)
+    {
+        Console.WriteLine("Данные введены некорректно");
+        return;
+    }
 
     var result = _transactionService.Get(id);
 
