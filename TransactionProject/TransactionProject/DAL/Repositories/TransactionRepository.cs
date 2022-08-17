@@ -7,7 +7,7 @@ namespace TransactionProject.DAL.Repositories
     /// </summary>
     internal class TransactionRepository
     {
-        private void Add(Transaction transaction)
+        public void Add(Transaction transaction)
         {
             using (var db = new TransactionContext())
             {
@@ -16,7 +16,7 @@ namespace TransactionProject.DAL.Repositories
             }
         }
 
-        private Transaction GetById(int id)
+        public Transaction GetById(int id)
         {
             using (var db = new TransactionContext())
             {
